@@ -1,0 +1,23 @@
+<a href="/dashboard"><button class="btn btn-primary">Home</button></a> | <a href="/answer/{{index}}"><button class="btn btn-primary">Answer this question</button></a>
+<a href="/"><button class="btn btn-primary">Logout</button></a>
+
+<h1>{{Question.question}}</h1>
+<h4>{{Question.description}}</h4>
+
+<br>
+
+<div *ngIf="Question.answers.length > 0">
+	<ul *ngFor="let x of Question.answers" class="list-unstyled">
+		<li>
+			<p>{{x.user}}</p>
+			<p><strong>{{x.answer}}</strong></p>
+			<p>{{x.details}}</p>
+			<p>Likes: {{x.likes}} | <button (click)="like(x._id)">Like!</button></p>
+		</li>
+	</ul>
+</div>
+
+<p *ngIf="Question.answers.length == 0">No Answers!</p>
+
+
+
